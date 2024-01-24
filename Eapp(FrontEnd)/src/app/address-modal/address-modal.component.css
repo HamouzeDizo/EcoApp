@@ -1,0 +1,23 @@
+/* address-modal.component.css */
+.mat-dialog-container {
+  max-width: 500px;
+  padding: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+  display: flex;
+}
+
+.custom-textarea {
+  width: 100%;
+  min-height: 100px;
+}
+
+.custom-dialog {
+  width: 100%;
+}

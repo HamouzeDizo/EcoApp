@@ -1,0 +1,57 @@
+<!-- app.component.html -->
+
+<div class="main-container">
+  <!-- Sidebar -->
+  <div *ngIf="showSidebar" class="sidebar">
+    <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto bg-dark text-white text-decoration-none">
+      <svg class="bi bg-dark" width="60" height="55"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-4 bg-dark" style="margin-top: 0;">Menu</span>
+    </div>
+    <hr style="margin-top: -2px">
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="#" class="nav-link text-white" aria-current="page">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+          Products
+        </a>
+      </li>
+      <li>
+        <a  routerLink="products/panier" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"></svg>
+          My Cart
+        </a>
+      </li>
+      <li>
+        <a class="nav-link text-white" routerLink="/orders">
+          <svg class="bi me-2" width="16" height="16"></svg>
+          My Orders
+        </a>
+      </li>
+    </ul>
+    <hr>
+  </div>
+
+  <!-- Toggle Button -->
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    <div class="hamburger-icon">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </button>
+
+  <!-- Main Content Area -->
+  <div class="content" style="background: linear-gradient(to right, #7bb4dc, #29b9a3);">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- products.component.html -->
+
+

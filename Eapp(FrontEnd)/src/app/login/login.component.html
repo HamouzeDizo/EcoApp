@@ -1,0 +1,17 @@
+<body>
+<div class="login-container">
+  <form [formGroup]="loginForm">
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" />
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" />
+
+    <button class="btn btn-primary" style="margin-top: 10px" (click)="logIn()">Log In</button>
+    <button class="btn btn-primary" style="margin-top: 10px" routerLink="/signup">Sign Up</button>
+  </form>
+
+  <div *ngIf="errorMessage" class="alert alert-danger" style="margin-top: 10px">
+    {{ errorMessage }}
+  </div>
+</div>
+</body>

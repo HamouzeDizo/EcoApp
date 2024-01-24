@@ -1,0 +1,59 @@
+
+<div class="container">
+  <h2 class="mb-3" style="margin-left: 530px;margin-top:10px">Your Orders</h2>
+
+  <div *ngFor="let order of orders" class="mb-3" >
+    <div class="card" >
+      <div class="card-header">
+        <h4>Order ID: {{ order.id }}</h4>
+        <button class="btn btn-danger" (click)="cancelOrder(order)">Cancel</button>
+        <button class="btn btn-primary" style="position:relative;left: 890px;" (click)="toggleOrderDetails(order.id)">
+          {{ isOrderExpanded(order.id) ? 'Hide Details' : 'Show Details' }}
+        </button>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th class="text-center">Address</th>
+            <th class="text-center">Order Date</th>
+            <th class="text-center">Delivery Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="text-center">{{ order.adresse }}</td>
+            <td class="text-center">{{ order.commandeDate }}</td>
+            <td class="text-center">{{ order.deliveryDate }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-body" *ngIf="isOrderExpanded(order.id)">
+        <table class="table">
+          <thead>
+          <tr>
+            <th class="text-center">image</th>
+            <th class="text-center">Product</th>
+            <th class="text-center">Quantity</th>
+            <th class="text-center">Price</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let detail of order.details">
+            <td style="width: 100px; padding: 0;">
+              <img src="{{ getProductById(detail).thumbnail }}" class="img-fluid rounded" alt="Product Image">
+            </td>
+            <td class="text-center" style="padding-top: 30px">{{ getProductById(detail).title }}</td>
+            <td class="text-center" style="padding-top: 30px">{{ detail.quantity }}</td>
+            <td class="text-center" style="padding-top: 30px">{{ getProductById(detail).price }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer">
+        <h2 style="margin-bottom: -5px">Total Order Price: {{ getTotalePrice(order) }}Dh</h2>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<body>
+<!-- this is cart-details.componant.html-->
+<div class="container" style="margin-left: 140px;">
+  <h2 class="mb-4" style="margin-left: 400px;margin-top:10px">Your Shopping Cart</h2>
+
+  <button class="btn btn-danger mb-4" (click)="clearCart()">Clear Cart</button>
+  <button class="btn btn-success mb-4" style="position: relative;left: 783px" (click)="goToOrders()">My Orders</button>
+  <hr class="solid">
+  <table class="table table-striped" style="max-width: 1000px">
+    <thead>
+    <tr>
+      <th >Image</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th style="width: 100px">Action</th>
+      <th style="width: 100px">Product Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of cartItems" class="table-row">
+      <td style="width: 100px; padding: 0;">
+        <img src="{{ item[0].thumbnail }}" class="img-fluid rounded" alt="Product Image">
+      </td>
+      <td>{{ item[0].title }}</td>
+      <td>{{ item[1] }}</td>
+      <td>{{ item[0].price }}Dh</td>
+      <td>
+        <div class="btn-group" role="group">
+          <button class="btn btn-success" (click)="increaseQuantity(item[0])">+</button>
+          <button class="btn btn-warning" (click)="decreaseQuantity(item[0])">-</button>
+          <button class="btn btn-danger" (click)="remove(item[0])">Remove</button>
+        </div>
+      </td>
+      <td>
+        <div class="btn-group" role="group">
+          <a class="btn btn-info" (click)="selectProduct(item[0])" href="/product-details/{{item[0].id}}" routerLinkActive="active">Details</a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h1 class="mt-4">Total: {{ totalPrice() }}Dh</h1>
+  <button class="btn btn-primary mb-4" style="position: relative;left: 860px" (click)="createOrder()" *ngIf="isLoggedIn()">Create Order</button>
+
+
+</div>
+
+</body>

@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Data Rows</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>nom</th>
+      <th>prenom</th>
+      <th>age</th>
+      <th>email</th>
+      <th>password</th>
+
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{client.id}}</td>
+      <td>{{client.nom}}</td>
+      <td>{{client.prenom}}</td>
+      <td>{{client.age}}</td>
+      <td>{{client.email}}</td>
+      <td>{{client.password}}</td>
+      <td>
+        <button >Update</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

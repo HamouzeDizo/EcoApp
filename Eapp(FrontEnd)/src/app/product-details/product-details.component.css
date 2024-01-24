@@ -1,0 +1,35 @@
+
+.a-icon.a-star-4 {
+  background-position: -2px -23px;
+}
+.a-icon.a-icon-star, .a-icon.a-icon-star-medium, .a-icon.a-icon-star-mini, .a-icon.a-icon-star-small {
+  background-image: url(https://m.media-amazon.com/images/S/sash/9DuIU8ZS5i377uD.png);
+  -webkit-background-size: 512px 512px;
+  background-size: 512px 512px;
+  background-repeat: no-repeat;
+}
+.a-hires .a-icon {
+  background-image: url(https://m.media-amazon.com/images/S/sash/f9Cwl2OUDVHGXk8.png);
+}
+.a-icon-star, .a-icon-star-small {
+  height: 18px;
+  width: 80px;
+}
+.a-icon-star, .a-icon-star-medium, .a-icon-star-mini, .a-icon-star-small {
+  position: relative;
+  vertical-align: text-top;
+}
+.a-icon {
+  display: inline-block;
+  vertical-align: top;
+}
+.a-icon {
+  background-image: url(https://m.media-amazon.com/images/S/sash/McBZv0ZvnbehkIx.png);
+  -webkit-background-size: 400px 900px;
+  background-size: 400px 900px;
+  background-repeat: no-repeat;
+}
+.nn{
+  display: flex;
+  align-items: center;
+}

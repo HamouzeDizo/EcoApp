@@ -1,0 +1,89 @@
+.hamburger-icon {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  overflow-y: hidden;
+}
+
+.overlay-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px; /* Adjust the width as needed */
+  height: 100%;
+  z-index: 1000; /* Ensure it appears on top of other elements */
+  background-color: #343a40; /* Sidebar background color */
+  color: white; /* Sidebar text color */
+  overflow-y: hidden; /* Allow vertical scrolling if the content is too long */
+}
+
+.sidebar-open {
+  margin-left: 200px;
+  overflow-y: hidden;
+}
+
+.custom-btn {
+  /* Adjust the color and thickness as needed */
+}
+.bar {
+  width: 80%;
+  height: 4px;
+  background-color: white; /* Adjust color as needed */
+  margin: 3px ;
+  overflow-y: hidden;
+}
+@media (max-width: 767px) {
+  /* Styles for small screens */
+  .hamburger-icon {
+    display: none; /* or any other styles that might hide the button */
+    overflow-y: hidden;
+  }
+}
+
+/* styles.css or your custom stylesheet */
+
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #333;
+  color: white;
+  overflow-y: auto;
+  position: fixed;
+  height: 100%;
+  z-index: 3;
+  transition: width 0.5s;
+}
+
+.toggle-btn {
+  background-color: #212529;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  z-index: 3;
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-left: 0;
+  transition: margin-left 0.5s;
+}
+
+.products-container {
+  padding: 20px;
+  overflow-y: auto;
+}
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" align="center">
+
+    <h3>Users Commandes</h3>
+
+    <table style="width:90%" border="1"
+           class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Adress</th>
+            <th>Order Date</th>
+            <th>Delivery Date</th>
+            <th>Detail</th>
+            <th>Delete Order</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="commande:${commandeList}">
+            <td th:text="${commande.adresse}"></td>
+            <td th:text="${commande.commandeDate}"></td>
+            <td th:text="${commande.deliveryDate}"></td>
+            <td>
+                <a th:href="@{'/thymleaf/detailCommandes/'+${commande.id}}" type="btn" class="btn btn-primary">Details</a>
+            </td>
+            <td>
+                <a th:href="@{'/thymleaf/commande/delete/'+${commande.idClient}+'/'+${commande.id}}" th:object="${commande}" class="btn btn-primary">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div></body>
+</html>

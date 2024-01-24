@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Details</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" align="center">
+
+    <h3>Order Details</h3>
+
+    <table style="width:90%" border="1"
+           class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Product Title</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="detail:${detailCommandeList}">
+            <td th:id="${'title_' + detail.idProduct}">Loading...</td>
+            <td th:text="${detail.quantity}"></td>
+            <script th:inline="javascript">
+                fetch('https://dummyjson.com/products/' + [[${detail.idProduct}]])
+                    .then(res => res.json())
+                    .then(data => document.getElementById('title_' + [[${detail.idProduct}]]).innerText = data.title);
+            </script>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Update Client</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<form th:action="@{'/thymleaf/updateUser/'+${client.id}}" th:object="${client}" method="post">
+    <div>
+        <label>Last Name:</label>
+        <input type="text" th:field="${client.nom}" placeholder="Last Name" />
+    </div>
+    <div>
+        <label>First Name:</label>
+        <input type="text" th:field="${client.prenom}" placeholder="First Name" />
+    </div>
+    <div>
+        <label>Age:</label>
+        <input type="number" th:field="${client.age}" placeholder="Age" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="email" th:field="${client.email}" placeholder="Email" />
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="text" th:field="${client.password}" placeholder="Password" />
+    </div>
+    <input type="submit" value="Submit"/>
+</form>
+
+</body>
+</html>

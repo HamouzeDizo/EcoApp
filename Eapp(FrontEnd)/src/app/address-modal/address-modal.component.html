@@ -1,0 +1,12 @@
+<!-- address-modal.component.html -->
+<div class="mat-dialog-container custom-dialog">
+  <h2 mat-dialog-title class="text-center">Enter Address For The Order</h2>
+  <div mat-dialog-content>
+    <p class="text-center">Please enter your address:</p>
+    <textarea [(ngModel)]="data.address" matInput placeholder="Enter your address" class="custom-textarea"></textarea>
+  </div>
+  <div mat-dialog-actions class="justify-content-center">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="data.address">Create Order</button>
+  </div>
+</div>

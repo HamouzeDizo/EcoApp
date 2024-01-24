@@ -1,0 +1,90 @@
+
+<div class="fixed-search-bar d-flex justify-content-between align-items-center bg-dark p-2" style="margin-bottom: 10px">
+  <div class="form d-flex" >
+    <div class="dynamic-width" style="margin-left: 350px" [style.width.px]="calculateDynamicWidth()+16">
+      <select class="form-control sharp-corners" [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+        <option [ngValue]="null" disabled selected>Categories</option>
+        <option value="all">All</option>
+        <option value="smartphones">Smartphones</option>
+        <option value="laptops">Laptops</option>
+        <option value="fragrances">Fragrances</option>
+        <option value="skincare">Skincare</option>
+        <option value="groceries">Groceries</option>
+        <option value="home-decoration">Home Decoration</option>
+        <option value="furniture">Furniture</option>
+        <option value="tops">Tops</option>
+        <option value="womens-dresses">Women's Dresses</option>
+        <option value="womens-shoes">Women's Shoes</option>
+        <option value="mens-shirts">Men's Shirts</option>
+        <option value="mens-shoes">Men's Shoes</option>
+        <option value="mens-watches">Men's Watches</option>
+        <option value="womens-watches">Women's Watches</option>
+        <option value="womens-bags">Women's Bags</option>
+        <option value="womens-jewellery">Women's Jewellery</option>
+        <option value="sunglasses">Sunglasses</option>
+        <option value="automotive">Automotive</option>
+        <option value="motorcycle">Motorcycle</option>
+        <option value="lighting">Lighting</option>
+      </select>
+    </div>
+    <div class="form-outline" style="width: 400px;">
+      <input type="search" id="form1" class="form-control sharp-corners" placeholder="Search" name="searchedText" [(ngModel)]="searchText" />
+    </div>
+    <button type="button" name="LOL" class="btn btn-primary sharp-corners ml-2" (click)="search()">Search</button>
+  </div>
+
+  <div>
+    <li class="nav-item dropdown" ngbDropdown style="margin-top: -15px;margin-right: 10px">
+      <a class="nav-link dropdown-toggle" style="background-color: #0D6EFD; width: 80px; margin-top: -5px; color: white; border-radius: 5px; padding: 6px;"  role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle *ngIf="!isUserAuthenticated()">
+        Profile
+      </a>
+      <a class="nav-link dropdown-toggle" style="background-color: #0D6EFD; margin-top: -5px; color: white; border-radius: 5px; padding: 6px;"  role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle *ngIf="isUserAuthenticated()">
+        {{userName}}
+      </a>
+      <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+        <li ngbDropdownItem *ngIf="isUserAuthenticated()">
+          <a class="dropdown-item" routerLink="/profil">My Profile</a>
+        </li>
+        <li ngbDropdownItem *ngIf="isUserAuthenticated()">
+          <a class="dropdown-item" (click)="logout()">Sign out</a>
+        </li>
+        <li ngbDropdownItem *ngIf="!isUserAuthenticated()">
+          <a class="dropdown-item" (click)="selectProduct(products[1])" routerLink="/signup" routerLinkActive="active">Sign up</a>
+        </li>
+        <li ngbDropdownItem *ngIf="!isUserAuthenticated()">
+          <a class="dropdown-item" routerLink="/login">Log in</a>
+        </li>
+      </ul>
+    </li>
+  </div>
+
+
+</div>
+<div class="container-fluid" style="margin-top: 60px">
+  <div class="row">
+    <div  class="col-sm-3" style="display: inline-block" *ngFor="let product of filteredProducts">
+      <div class="card" style="width: 17rem; margin-bottom: 10px">
+        <img class="card-img-top" style="object-fit: contain" width="100px" height="240px" [src]="product?.thumbnail" alt="Card image cap">
+        <div class="card-body">
+          <h3 class="card-title">{{product?.title}}</h3>
+          <h4 class="card-text" [ngStyle]="{color: getColor(product)}">{{getSate(product)}}</h4>
+        </div>
+        <div class="card-footer">
+          <div style="margin-bottom: 10px">
+            <a class="btn btn-primary" style="margin-right: 30px; background-color: #495057"
+               (click)="selectProduct(product)" href="/product-details/{{product.id}}" routerLinkActive="active">Details</a>
+            <input type="number" style="margin-left: 65px" value="1" min="1" max="100" #quantity>
+          </div>
+          <div>
+            <a class="btn btn-primary" style="width: 240px;background-color: coral;" (click)="add(product,quantity)">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+    </div>
+  </div>
+</div>
+
+
+
